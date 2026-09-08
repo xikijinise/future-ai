@@ -7,208 +7,142 @@
 <meta name="description" content="展望 AI 的未来，让复杂安静退场，让生活回到中心。">
 <title>向前看｜未来更像生活</title>
 <style>
-:root{
-  --bg:#fff;
-  --ink:#20241f;
-  --muted:#747b72;
-  --line:#e5e8e2;
-  --soft:#f8f9f6;
-  --green:#86a375;
-  --green-soft:#e4eddf;
-  --peach:#f4d3c0;
-  --blue:#dceeed;
-  --yellow:#f4e5b3;
-  --radius:26px;
-}
+:root{--bg:#fff;--ink:#20241f;--muted:#747b72;--line:#e5e8e2;--soft:#fafbf8;--green:#86a375;--green-soft:#e4eddf;--peach:#f2d0bd;--blue:#dceeed;--yellow:#f3e2ad;--radius:24px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
 ::selection{background:var(--green-soft)}
-.wrap{width:min(1120px,calc(100% - 44px));margin:auto}
-.header{height:78px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:28px;position:relative;z-index:10}
-.brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:850}
-.brand-mark{width:25px;height:25px;border:1.5px solid var(--ink);border-radius:50%;position:relative}
-.brand-mark:before{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:var(--ink);top:4px;left:8px}
-.brand-mark:after{content:"";position:absolute;width:15px;height:1px;background:var(--ink);transform:rotate(-33deg);left:4px;bottom:6px}
-.nav{display:flex;gap:24px;margin-left:auto}
-.nav a{font-size:12px;color:var(--muted);transition:color .25s}
-.nav a:hover{color:var(--ink)}
-.header-button{border:1px solid var(--ink);border-radius:999px;padding:10px 14px;font-size:12px;transition:background .25s,color .25s,transform .25s}
-.header-button:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
-.menu{display:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:12px}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(390px,470px);gap:80px;align-items:center;padding:96px 0 88px}
-.eyebrow{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:10px;font-weight:850;letter-spacing:.15em;margin:0 0 25px}
-.eyebrow b{color:var(--ink);font-variant-numeric:tabular-nums}
-.hero h1{font-size:clamp(58px,8vw,104px);line-height:.94;letter-spacing:-.095em;margin:0 0 27px;font-weight:900}
-.hero h1 em,.section h2 em,.day-intro h2 em,.closing-note em{font-style:normal;color:var(--green)}
-.lede{color:#5e665c;font-size:16px;line-height:1.85;max-width:470px;margin:0}
-.actions{display:flex;align-items:center;gap:24px;margin-top:36px}
-.button{display:inline-flex;align-items:center;gap:18px;border-radius:999px;padding:14px 18px;font-size:12px;font-weight:850;transition:transform .25s,box-shadow .25s}
-.button:hover{transform:translateY(-3px)}
-.button-dark{background:var(--ink);color:#fff;box-shadow:0 10px 23px rgba(32,36,31,.15)}
-.button-dark:hover{box-shadow:0 16px 30px rgba(32,36,31,.22)}
-.text-link{font-size:12px;color:var(--muted);border-bottom:1px solid #bfc6bc;padding-bottom:5px}
-.text-link span{margin-left:7px;color:var(--ink)}
-.hero-note{display:flex;align-items:center;gap:10px;color:#99a096;font-size:11px;margin-top:64px}
-.hero-note:before{content:"";width:28px;height:1px;background:#aab5a5}
-.scene-card{background:#fff;border:1px solid var(--line);border-radius:30px;padding:18px;box-shadow:0 20px 48px rgba(36,42,34,.08);transform:rotate(1.8deg);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
-.scene-card:hover{transform:rotate(0) translateY(-5px)}
-.scene-head,.scene-foot{display:flex;justify-content:space-between;align-items:center;color:#8b9388;font-size:9px;font-weight:850;letter-spacing:.12em}
-.scene{height:365px;margin:12px 0;border-radius:22px;position:relative;overflow:hidden;background:linear-gradient(#f8f9f4 0 67%,#f0e4d9 67%)}
-.window{position:absolute;width:190px;height:205px;top:38px;left:50%;transform:translateX(-50%);border:1px solid #d9e0d7;border-radius:18px;background:linear-gradient(145deg,#e5f1ec,#fff8eb);overflow:hidden}
-.window:before{content:"";position:absolute;width:100%;height:1px;background:#d9e0d7;top:50%}
-.window:after{content:"";position:absolute;width:1px;height:100%;background:#d9e0d7;left:50%}
-.sun{position:absolute;width:62px;height:62px;border-radius:50%;background:#efd18d;top:31px;left:50%;transform:translateX(-50%);animation:float 5s ease-in-out infinite}
-.curtain{position:absolute;width:38px;height:215px;top:-5px;background:#fff;border-radius:0 0 20px 20px;opacity:.7}
+.wrap{width:min(1080px,calc(100% - 40px));margin:auto}
+.header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:15px;font-weight:850;letter-spacing:.02em}
+.header-link{font-size:12px;color:var(--muted);border-bottom:1px solid #c5ccc1;padding-bottom:4px;transition:color .25s,border-color .25s}
+.header-link:hover{color:var(--ink);border-color:var(--ink)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(390px,465px);gap:74px;align-items:center;padding:96px 0 94px}
+.kicker{font-size:10px;color:var(--muted);font-weight:850;letter-spacing:.15em;margin:0 0 24px}
+.hero h1,.section h2{font-size:clamp(55px,7.8vw,101px);line-height:.95;letter-spacing:-.095em;margin:0 0 28px;font-weight:900}
+.hero h1 em,.section h2 em,.day-intro h2 em{font-style:normal;color:var(--green)}
+.lede{font-size:16px;line-height:1.85;color:#5e665c;max-width:455px;margin:0}
+.hero-button{display:inline-flex;align-items:center;gap:18px;border-radius:999px;background:var(--ink);color:#fff;padding:14px 18px;font-size:12px;font-weight:850;margin-top:35px;box-shadow:0 10px 22px rgba(32,36,31,.14);transition:transform .25s,box-shadow .25s}
+.hero-button:hover{transform:translateY(-3px);box-shadow:0 16px 30px rgba(32,36,31,.22)}
+.hero-scene{height:420px;border:1px solid var(--line);border-radius:30px;background:#fff;padding:14px;box-shadow:0 18px 42px rgba(36,42,34,.07);transform:rotate(1.5deg);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.hero-scene:hover{transform:rotate(0) translateY(-5px)}
+.scene{height:100%;border-radius:22px;overflow:hidden;position:relative;background:linear-gradient(#f8faf6 0 67%,#f0e3d7 67%)}
+.window{position:absolute;width:190px;height:205px;top:38px;left:50%;transform:translateX(-50%);border:1px solid #d9e0d7;border-radius:18px;background:linear-gradient(145deg,#e4f0eb,#fff7e7);overflow:hidden}
+.window:before{content:"";position:absolute;width:100%;height:1px;top:50%;background:#d9e0d7}
+.window:after{content:"";position:absolute;width:1px;height:100%;left:50%;background:#d9e0d7}
+.sun{position:absolute;width:62px;height:62px;top:31px;left:50%;border-radius:50%;background:#efd08c;transform:translateX(-50%);animation:float 5s ease-in-out infinite}
+.curtain{position:absolute;top:-5px;width:38px;height:215px;background:rgba(255,255,255,.75);border-radius:0 0 20px 20px}
 .curtain.left{left:-10px;transform:rotate(5deg)}.curtain.right{right:-10px;transform:rotate(-5deg)}
-.table{position:absolute;width:245px;height:15px;background:#d8b99f;left:50%;bottom:77px;transform:translateX(-50%);border-radius:999px}
-.table:after{content:"";position:absolute;width:7px;height:76px;background:#c7a68f;left:50%;top:10px;border-radius:0 0 6px 6px}
-.plant{position:absolute;width:75px;height:95px;left:calc(50% - 115px);bottom:90px}
-.pot{position:absolute;width:44px;height:36px;left:16px;bottom:0;background:#e9ba9f;border-radius:5px 5px 14px 14px}
-.stem{position:absolute;width:3px;height:65px;background:#7f9c70;left:37px;bottom:28px;transform:rotate(7deg);transform-origin:bottom}
-.leaf{position:absolute;width:31px;height:15px;background:#91ad7f;border-radius:100% 0 100% 0;transform-origin:bottom left}
+.table{position:absolute;width:245px;height:14px;left:50%;bottom:76px;transform:translateX(-50%);border-radius:999px;background:#d7b79d}
+.table:after{content:"";position:absolute;width:7px;height:77px;left:50%;top:10px;border-radius:0 0 6px 6px;background:#c6a38a}
+.plant{position:absolute;width:76px;height:98px;left:calc(50% - 115px);bottom:88px;animation:sway 4.5s ease-in-out infinite}
+.pot{position:absolute;width:44px;height:35px;left:16px;bottom:0;border-radius:5px 5px 14px 14px;background:#e8b99e}
+.stem{position:absolute;width:3px;height:65px;left:37px;bottom:27px;background:#7f9c70;transform:rotate(7deg);transform-origin:bottom}
+.leaf{position:absolute;width:31px;height:15px;border-radius:100% 0 100% 0;background:#91ad7f;transform-origin:bottom left}
 .leaf.one{left:37px;bottom:70px;transform:rotate(-36deg)}.leaf.two{left:34px;bottom:50px;transform:rotate(26deg)}.leaf.three{left:27px;bottom:59px;transform:rotate(-72deg)}
-.plant{animation:sway 4.5s ease-in-out infinite}
-.book{position:absolute;width:72px;height:12px;right:calc(50% - 112px);bottom:91px;background:#d8e5d3;border-radius:4px;transform:rotate(-8deg)}
-.scene-label{position:absolute;left:20px;bottom:19px;border-radius:999px;background:rgba(255,255,255,.76);padding:8px 10px;color:#596957;font-size:10px}
-.scene-foot{letter-spacing:.08em}.scene-foot span:last-child{font-size:16px;color:var(--ink)}
+.book{position:absolute;width:72px;height:12px;right:calc(50% - 112px);bottom:90px;border-radius:4px;background:#d7e5d1;transform:rotate(-8deg)}
 .band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;color:var(--muted);font-size:13px}
 .section{padding:100px 0}
-.section h2,.day-intro h2{font-size:clamp(44px,5.8vw,72px);line-height:1.02;letter-spacing:-.085em;margin:0 0 22px}
+.section h2{font-size:clamp(43px,5.7vw,72px);margin-bottom:22px}
 .section-intro,.day-intro>p{font-size:15px;line-height:1.8;color:var(--muted);max-width:465px;margin:0}
-.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:55px}
-.value-card{min-height:235px;border:1px solid var(--line);border-radius:var(--radius);padding:22px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.value-card:hover{transform:translateY(-4px);box-shadow:0 15px 35px rgba(35,42,33,.08)}
-.value-card:nth-child(1){border-top:5px solid var(--peach)}.value-card:nth-child(2){border-top:5px solid var(--blue)}.value-card:nth-child(3){border-top:5px solid var(--yellow)}
-.value-meta{display:flex;justify-content:space-between;color:#8c9589;font-size:10px;font-weight:850;letter-spacing:.13em}
-.value-card h3{font-size:23px;letter-spacing:-.055em;margin:57px 0 11px}
-.value-card p{font-size:13px;line-height:1.75;color:var(--muted);max-width:275px;margin:0}
-.day-section{display:grid;grid-template-columns:.72fr 1.28fr;gap:75px;align-items:start}
-.day-intro{padding-top:8px}
-.day-panel{border:1px solid var(--line);border-radius:30px;padding:21px;background:#fff}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:54px}
+.value-card{min-height:225px;border:1px solid var(--line);border-top:5px solid var(--peach);border-radius:var(--radius);padding:20px;transition:transform .3s,box-shadow .3s}
+.value-card:nth-child(2){border-top-color:var(--blue)}.value-card:nth-child(3){border-top-color:var(--yellow)}
+.value-card:hover{transform:translateY(-4px);box-shadow:0 15px 32px rgba(35,42,33,.08)}
+.value-card small{font-size:10px;color:#969e92;font-weight:850}
+.value-card h3{font-size:23px;letter-spacing:-.055em;margin:53px 0 11px}
+.value-card p{font-size:13px;line-height:1.75;color:var(--muted);margin:0;max-width:270px}
+.day-section{display:grid;grid-template-columns:.72fr 1.28fr;gap:70px;align-items:start}
+.day-intro{padding-top:7px}
+.day-intro h2{font-size:clamp(43px,5.7vw,72px);line-height:1.02;letter-spacing:-.085em;margin:0 0 22px}
+.day-panel{border:1px solid var(--line);border-radius:30px;padding:20px;background:#fff}
 .time-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
-.time-tab{border:0;background:var(--soft);color:#99a095;border-radius:14px;padding:12px 7px;font-size:12px;font-weight:850;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.time-tab{border:0;border-radius:14px;background:var(--soft);color:#98a095;padding:12px 7px;font-size:12px;font-weight:850;cursor:pointer;transition:background .25s,color .25s,transform .25s}
 .time-tab:hover{transform:translateY(-2px)}.time-tab.active{background:var(--ink);color:#fff}
-.day-line{height:4px;background:#edf0eb;border-radius:999px;margin:20px 3px 22px;overflow:hidden}
-.day-line span{display:block;width:20%;height:100%;background:var(--green);border-radius:999px;transition:width .45s}
-.day-card{min-height:280px;border-radius:22px;background:var(--soft);padding:22px;display:grid;grid-template-columns:78px 1fr;gap:14px;animation:none}
+.day-card{min-height:280px;border-radius:22px;background:var(--soft);padding:22px;margin-top:20px;display:grid;grid-template-columns:78px 1fr;gap:14px}
 .day-card.swap{animation:swap .4s ease}
 .day-time{font-size:29px;letter-spacing:-.08em;color:#99b088;font-weight:900}
-.day-kicker{font-size:10px;color:#849080;letter-spacing:.12em;font-weight:850;margin:2px 0 17px}
-.day-copy h3{font-size:27px;line-height:1.1;letter-spacing:-.065em;margin:0 0 13px}
-.day-copy p{font-size:13px;line-height:1.75;color:var(--muted);max-width:380px;margin:0}
-.day-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
-.day-tags span{font-size:10px;color:#62705c;background:var(--green-soft);border-radius:999px;padding:7px 9px}
+.day-copy h3{font-size:28px;line-height:1.1;letter-spacing:-.065em;margin:2px 0 14px}
+.day-copy p{font-size:13px;line-height:1.8;color:var(--muted);max-width:380px;margin:0}
 .day-bottom{grid-column:1/-1;align-self:end;border-top:1px solid #e4e8e1;padding-top:13px;color:#8d968a;font-size:10px}
-.closing-note{border-top:1px solid var(--line);padding:42px 0 70px;display:flex;justify-content:space-between;align-items:end;gap:30px}
-.closing-note h2{font-size:clamp(36px,4.4vw,58px);line-height:1.02;letter-spacing:-.08em;margin:0}
-.closing-note p{font-size:12px;color:var(--muted);max-width:210px;line-height:1.7;margin:0}
-.footer{border-top:1px solid var(--line);display:flex;justify-content:space-between;padding:22px 0 30px;color:#98a096;font-size:10px;letter-spacing:.1em}
+.footer{border-top:1px solid var(--line);display:flex;justify-content:space-between;padding:22px 0 30px;color:#98a096;font-size:10px;letter-spacing:.08em}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
 .delay{transition-delay:.12s}
 @keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-7px)}}
 @keyframes sway{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(3deg)}}
 @keyframes swap{0%{opacity:.35;transform:translateY(8px)}100%{opacity:1;transform:none}}
 @media(max-width:900px){
-  .wrap{width:min(100% - 32px,700px)}.header{height:72px}.nav{display:none;position:absolute;top:63px;left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:17px;padding:9px;box-shadow:0 14px 30px rgba(35,42,33,.08)}.nav.open{display:grid;gap:0}.nav a{padding:12px 10px}.menu{display:block;margin-left:auto;margin-right:4px}
-  .hero{grid-template-columns:1fr;gap:48px;padding-top:70px}.scene-card{max-width:500px;margin:auto}.value-grid{grid-template-columns:1fr}.value-card{min-height:200px}.value-card h3{margin-top:44px}.day-section{grid-template-columns:1fr;gap:40px}
+  .wrap{width:min(100% - 32px,700px)}.hero{grid-template-columns:1fr;gap:48px;padding-top:70px}.hero-scene{max-width:500px;margin:auto}.value-grid{grid-template-columns:1fr}.value-card{min-height:195px}.value-card h3{margin-top:42px}.day-section{grid-template-columns:1fr;gap:40px}
 }
 @media(max-width:560px){
-  .wrap{width:calc(100% - 28px)}.header-button{padding:9px 11px;font-size:10px}.hero{padding-top:55px}.hero h1{font-size:clamp(51px,16vw,78px)}.lede{font-size:15px}.actions{flex-direction:column;align-items:flex-start;gap:18px}.hero-note{margin-top:50px}
-  .scene-card{padding:14px;border-radius:25px}.scene{height:300px}.window{width:155px;height:170px;top:31px}.sun{width:50px;height:50px;top:27px}.curtain{height:180px;width:30px}.table{width:205px;bottom:63px}.table:after{height:62px}.plant{transform:scale(.84);transform-origin:bottom left;left:calc(50% - 100px);bottom:74px}.book{right:calc(50% - 96px);bottom:75px}.scene-label{left:13px;bottom:13px;font-size:9px}
-  .band{font-size:12px}.section{padding:78px 0}.section h2,.day-intro h2{font-size:47px}.day-panel{padding:15px;border-radius:25px}.day-card{grid-template-columns:1fr;gap:5px;min-height:330px;padding:18px}.day-time{font-size:26px}.day-copy h3{font-size:25px}.day-bottom{margin-top:18px}.closing-note{display:block;padding:34px 0 58px}.closing-note p{margin-top:20px}.footer{flex-direction:column;gap:7px;line-height:1.6}
+  .wrap{width:calc(100% - 28px)}.header{height:70px}.header-link{font-size:11px}.hero{padding-top:55px}.hero h1{font-size:clamp(51px,16vw,78px)}.lede{font-size:15px}.hero-scene{height:335px;padding:12px;border-radius:25px}
+  .window{width:155px;height:170px;top:31px}.sun{width:50px;height:50px;top:27px}.curtain{height:180px;width:30px}.table{width:205px;bottom:62px}.table:after{height:62px}.plant{transform:scale(.84);transform-origin:bottom left;left:calc(50% - 100px);bottom:73px}.book{right:calc(50% - 96px);bottom:74px}
+  .band{font-size:12px}.section{padding:78px 0}.section h2,.day-intro h2{font-size:47px}.day-panel{padding:15px;border-radius:25px}.day-card{grid-template-columns:1fr;gap:5px;min-height:325px;padding:18px}.day-time{font-size:26px}.day-copy h3{font-size:25px}.day-bottom{margin-top:18px}.footer{flex-direction:column;gap:7px;line-height:1.6}
 }
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}
-}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header class="header">
-  <a class="brand" href="#top" aria-label="向前看首页"><span class="brand-mark" aria-hidden="true"></span><span>向前看</span></a>
-  <button class="menu" type="button" aria-expanded="false" aria-controls="siteNav">目录</button>
-  <nav class="nav" id="siteNav" aria-label="主导航"><a href="#values">三个判断</a><a href="#day">未来的一天</a></nav>
-  <a class="header-button" href="#day">看未来 <span aria-hidden="true">↗</span></a>
-</header>
-
+<header class="header"><a class="brand" href="#top">向前看</a><a class="header-link" href="#day">未来的一天 ↓</a></header>
 <main id="top">
 <section class="hero">
   <div class="reveal">
-    <p class="eyebrow"><b>01</b> FUTURE NOTE</p>
+    <p class="kicker">展望 AI 的未来</p>
     <h1>未来，<br>更像<em>生活。</em></h1>
-    <p class="lede">展望 AI 的下一页，不是把世界变得更复杂，而是让复杂的部分安静退场，把时间、选择和决定权还给人。</p>
-    <div class="actions"><a class="button button-dark" href="#day">看未来的一天 <span aria-hidden="true">↓</span></a><a class="text-link" href="#values">三个判断 <span aria-hidden="true">↗</span></a></div>
-    <div class="hero-note">好的帮助，不需要一直被看见。</div>
+    <p class="lede">不是把世界变得更复杂，而是让复杂的部分安静退场，把时间、选择和决定权还给人。</p>
+    <a class="hero-button" href="#day">看未来的一天 <span aria-hidden="true">↓</span></a>
   </div>
-  <div class="scene-card reveal delay">
-    <div class="scene-head"><span>AT HOME / TOMORROW</span><span>07:40</span></div>
-    <div class="scene" aria-label="窗边植物与晨光的生活化场景">
-      <div class="window"><div class="sun"></div><div class="curtain left"></div><div class="curtain right"></div></div>
-      <div class="plant"><div class="stem"></div><div class="leaf one"></div><div class="leaf two"></div><div class="leaf three"></div><div class="pot"></div></div>
-      <div class="book"></div><div class="table"></div><div class="scene-label">生活仍在中心</div>
-    </div>
-    <div class="scene-foot"><span>QUIETLY BETTER</span><span aria-hidden="true">↗</span></div>
+  <div class="hero-scene reveal delay" aria-label="窗边植物与晨光的生活化场景">
+    <div class="scene"><div class="window"><div class="sun"></div><div class="curtain left"></div><div class="curtain right"></div></div><div class="plant"><div class="stem"></div><div class="leaf one"></div><div class="leaf two"></div><div class="leaf three"></div><div class="pot"></div></div><div class="book"></div><div class="table"></div></div>
   </div>
 </section>
 
 <div class="band">技术越自然，人的存在感越清晰。</div>
 
 <section class="section" id="values">
-  <div class="reveal"><p class="eyebrow"><b>02</b> THREE JUDGMENTS</p><h2>未来不是炫技，<br>是三种<em>取舍。</em></h2><p class="section-intro">真正重要的，不是 AI 能做到什么，而是它愿意为人的生活留下什么。</p></div>
+  <div class="reveal"><p class="kicker">三个判断</p><h2>未来不是炫技，<br>是三种<em>取舍。</em></h2><p class="section-intro">真正重要的，不是 AI 能做到什么，而是它愿意为人的生活留下什么。</p></div>
   <div class="value-grid">
-    <article class="value-card reveal"><div class="value-meta"><span>01</span><span>TIME</span></div><h3>把时间还给人</h3><p>重复的部分被接住，精力回到判断、陪伴和真正想做的事。</p></article>
-    <article class="value-card reveal delay"><div class="value-meta"><span>02</span><span>CHOICE</span></div><h3>让选择更有余地</h3><p>工具提供更多可能，但不替人决定什么才是正确答案。</p></article>
-    <article class="value-card reveal delay"><div class="value-meta"><span>03</span><span>BOUNDARY</span></div><h3>把边界留在手里</h3><p>越强大的能力，越应该允许暂停、退出和重新选择。</p></article>
+    <article class="value-card reveal"><small>01</small><h3>把时间还给人</h3><p>重复的部分被接住，精力回到判断、陪伴和真正想做的事。</p></article>
+    <article class="value-card reveal delay"><small>02</small><h3>让选择更有余地</h3><p>工具提供更多可能，但不替人决定什么才是正确答案。</p></article>
+    <article class="value-card reveal delay"><small>03</small><h3>把边界留在手里</h3><p>越强大的能力，越应该允许暂停、退出和重新选择。</p></article>
   </div>
 </section>
 
 <section class="day-section section" id="day">
-  <div class="day-intro reveal"><p class="eyebrow"><b>03</b> A DAY AHEAD</p><h2>未来的一天，<br>从不抢镜的<em>帮助</em>开始。</h2><p>点一下时间，看看同一种能力如何变成更自然的生活方式。</p></div>
+  <div class="day-intro reveal"><p class="kicker">未来的一天</p><h2>帮助不必<em>抢镜。</em></h2><p>点一下时间，看看同一种能力如何变成更自然的生活方式。</p></div>
   <div class="day-panel reveal delay">
     <div class="time-tabs" role="tablist" aria-label="未来的一天"><button class="time-tab active" type="button" role="tab" aria-selected="true" data-index="0">07:40</button><button class="time-tab" type="button" role="tab" aria-selected="false" data-index="1">13:20</button><button class="time-tab" type="button" role="tab" aria-selected="false" data-index="2">22:15</button></div>
-    <div class="day-line" aria-hidden="true"><span id="dayProgress"></span></div>
-    <article class="day-card" id="dayCard" aria-live="polite"><div class="day-time" id="dayTime">07:40</div><div class="day-copy"><p class="day-kicker" id="dayKicker">醒来以后</p><h3 id="dayTitle">一天从容地开始</h3><p id="dayBody">杂乱的提醒先被整理好，真正重要的事留下来。你不必一醒来，就被信息追着跑。</p><div class="day-tags" id="dayTags"><span>少一点打扰</span><span>自己决定</span></div></div><div class="day-bottom" id="dayLabel">清晨 · 留白很重要</div></article>
+    <article class="day-card" id="dayCard" aria-live="polite"><div class="day-time" id="dayTime">07:40</div><div class="day-copy"><h3 id="dayTitle">一天从容地开始</h3><p id="dayBody">杂乱的提醒先被整理好，真正重要的事留下来。你不必一醒来，就被信息追着跑。</p></div><div class="day-bottom" id="dayLabel">清晨 · 留白很重要</div></article>
   </div>
 </section>
-
-<section class="closing-note reveal"><h2>让技术退到背景，<br>让生活回到<em>中心。</em></h2><p>未来是否值得期待，最后还是要回到人的感受。</p></section>
 </main>
-
-<footer class="footer"><span>向前看 · FUTURE, HUMANLY</span><span>一页关于明天的想象</span></footer>
+<footer class="footer"><span>向前看</span><span>让生活回到中心</span></footer>
 </div>
-
 <script>
-const menuButton=document.querySelector('.menu');
-const siteNav=document.querySelector('#siteNav');
-menuButton.addEventListener('click',function(){const open=siteNav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open))});
-siteNav.querySelectorAll('a').forEach(function(link){link.addEventListener('click',function(){siteNav.classList.remove('open');menuButton.setAttribute('aria-expanded','false')})});
-const revealObserver=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('show');revealObserver.unobserve(entry.target)}})},{threshold:.12});
-document.querySelectorAll('.reveal').forEach(function(item){revealObserver.observe(item)});
+const observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(item){observer.observe(item)});
 const moments=[
-  {time:'07:40',kicker:'醒来以后',title:'一天从容地开始',body:'杂乱的提醒先被整理好，真正重要的事留下来。你不必一醒来，就被信息追着跑。',tags:['少一点打扰','自己决定'],label:'清晨 · 留白很重要',progress:'20%'},
-  {time:'13:20',kicker:'工作之间',title:'想法可以一起长大',body:'复杂的任务被拆成轻松的几步，人负责方向与判断，工具负责把想法稳稳带到现实。',tags:['共同创造','人做决定'],label:'午后 · 一起完成',progress:'60%'},
-  {time:'22:15',kicker:'一天结束',title:'把注意力还给生活',body:'重要的事情被照料好，剩下的时间不再被追问。你可以关掉它，去散步、聊天，或者什么也不做。',tags:['保留边界','自然发生'],label:'夜晚 · 不必在线',progress:'100%'}
+  {time:'07:40',title:'一天从容地开始',body:'杂乱的提醒先被整理好，真正重要的事留下来。你不必一醒来，就被信息追着跑。',label:'清晨 · 留白很重要'},
+  {time:'13:20',title:'想法可以一起长大',body:'复杂的任务被拆成轻松的几步，人负责方向与判断，工具负责把想法稳稳带到现实。',label:'午后 · 一起完成'},
+  {time:'22:15',title:'把注意力还给生活',body:'重要的事情被照料好，剩下的时间不再被追问。你可以关掉它，去散步、聊天，或者什么也不做。',label:'夜晚 · 不必在线'}
 ];
-const timeTabs=[...document.querySelectorAll('.time-tab')];
-const dayCard=document.querySelector('#dayCard');
+const tabs=[...document.querySelectorAll('.time-tab')];
+const card=document.querySelector('#dayCard');
 function setMoment(index){
   const item=moments[index];
-  timeTabs.forEach(function(tab,i){tab.classList.toggle('active',i===index);tab.setAttribute('aria-selected',String(i===index))});
+  tabs.forEach(function(tab,i){tab.classList.toggle('active',i===index);tab.setAttribute('aria-selected',String(i===index))});
   document.querySelector('#dayTime').textContent=item.time;
-  document.querySelector('#dayKicker').textContent=item.kicker;
   document.querySelector('#dayTitle').textContent=item.title;
   document.querySelector('#dayBody').textContent=item.body;
   document.querySelector('#dayLabel').textContent=item.label;
-  document.querySelector('#dayProgress').style.width=item.progress;
-  document.querySelector('#dayTags').innerHTML=item.tags.map(function(tag){return '<span>'+tag+'</span>'}).join('');
-  dayCard.classList.remove('swap');
-  void dayCard.offsetWidth;
-  dayCard.classList.add('swap');
+  card.classList.remove('swap');
+  void card.offsetWidth;
+  card.classList.add('swap');
 }
-timeTabs.forEach(function(tab,index){tab.addEventListener('click',function(){setMoment(index)})});
+tabs.forEach(function(tab,index){tab.addEventListener('click',function(){setMoment(index)})});
 </script>
 </body>
 </html>
