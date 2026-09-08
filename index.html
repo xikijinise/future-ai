@@ -9,15 +9,15 @@
 <style>
 :root{
   --bg:#fff;
-  --ink:#1f241f;
-  --muted:#6f786d;
-  --line:#e5e9e3;
-  --soft:#f7f9f5;
-  --sage:#88a77a;
-  --sage-soft:#e6eee1;
-  --peach:#f2d1bd;
-  --blue:#dcefed;
-  --yellow:#f3e3b3;
+  --ink:#000;
+  --muted:#000;
+  --line:#000;
+  --soft:#fff;
+  --sage:#000;
+  --sage-soft:#fff;
+  --peach:#000;
+  --blue:#000;
+  --yellow:#000;
   --radius:26px;
 }
 *{box-sizing:border-box}
@@ -30,7 +30,7 @@ body{
 }
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
-::selection{background:var(--sage-soft)}
+::selection{background:#000;color:#fff}
 .wrap{width:min(1080px,calc(100% - 40px));margin:auto}
 .header{
   height:76px;
@@ -57,7 +57,7 @@ button{font:inherit;color:inherit}
 .lede{
   max-width:465px;
   margin:0;
-  color:#5f685d;
+  color:#000;
   font-size:17px;
   line-height:1.85;
 }
@@ -72,10 +72,10 @@ button{font:inherit;color:inherit}
   color:#fff;
   font-size:13px;
   font-weight:850;
-  box-shadow:0 12px 25px rgba(31,36,31,.14);
+  box-shadow:0 12px 25px rgba(0,0,0,.14);
   transition:transform .25s ease,box-shadow .25s ease;
 }
-.hero-button:hover{transform:translateY(-3px);box-shadow:0 18px 34px rgba(31,36,31,.2)}
+.hero-button:hover{transform:translateY(-3px);box-shadow:0 18px 34px rgba(0,0,0,.2)}
 .hero-art{
   height:470px;
   padding:12px;
@@ -83,14 +83,14 @@ button{font:inherit;color:inherit}
   border:1px solid var(--line);
   border-radius:32px;
   background:#fff;
-  box-shadow:0 20px 48px rgba(36,44,34,.08);
+  box-shadow:0 20px 48px rgba(0,0,0,.08);
   transform:rotate(1.2deg);
   transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s ease;
   animation:breathe 8s ease-in-out infinite;
 }
 .hero-art:hover{
   transform:rotate(0) translateY(-6px);
-  box-shadow:0 28px 58px rgba(36,44,34,.12);
+  box-shadow:0 28px 58px rgba(0,0,0,.12);
 }
 .hero-art img{
   display:block;
@@ -130,9 +130,7 @@ button{font:inherit;color:inherit}
   border-radius:var(--radius);
   transition:transform .3s ease,box-shadow .3s ease;
 }
-.value-card:nth-child(2){border-top-color:var(--blue)}
-.value-card:nth-child(3){border-top-color:var(--yellow)}
-.value-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(35,42,33,.08)}
+.value-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(0,0,0,.08)}
 .value-card h3{
   margin:49px 0 12px;
   font-size:24px;
@@ -165,7 +163,7 @@ button{font:inherit;color:inherit}
   border:0;
   border-radius:14px;
   background:var(--soft);
-  color:#7f897c;
+  color:#000;
   font-size:13px;
   font-weight:850;
   cursor:pointer;
@@ -185,7 +183,7 @@ button{font:inherit;color:inherit}
 }
 .day-card.swap{animation:swap .4s ease}
 .day-time{
-  color:#94ad87;
+  color:#000;
   font-size:30px;
   font-weight:900;
   letter-spacing:-.08em;
@@ -208,7 +206,7 @@ button{font:inherit;color:inherit}
   justify-content:space-between;
   padding:24px 0 32px;
   border-top:1px solid var(--line);
-  color:#8a9487;
+  color:#000;
   font-size:13px;
 }
 .reveal{
