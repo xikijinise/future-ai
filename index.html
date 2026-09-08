@@ -17,8 +17,6 @@ button{font:inherit;color:inherit}
 .wrap{width:min(1080px,calc(100% - 40px));margin:auto}
 .header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
 .brand{font-size:15px;font-weight:850;letter-spacing:.02em}
-.header-link{font-size:12px;color:var(--muted);border-bottom:1px solid #c5ccc1;padding-bottom:4px;transition:color .25s,border-color .25s}
-.header-link:hover{color:var(--ink);border-color:var(--ink)}
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(390px,465px);gap:74px;align-items:center;padding:96px 0 94px}
 .kicker{font-size:10px;color:var(--muted);font-weight:850;letter-spacing:.15em;margin:0 0 24px}
 .hero h1,.section h2{font-size:clamp(55px,7.8vw,101px);line-height:.95;letter-spacing:-.095em;margin:0 0 28px;font-weight:900}
@@ -43,7 +41,6 @@ button{font:inherit;color:inherit}
 .leaf{position:absolute;width:31px;height:15px;border-radius:100% 0 100% 0;background:#91ad7f;transform-origin:bottom left}
 .leaf.one{left:37px;bottom:70px;transform:rotate(-36deg)}.leaf.two{left:34px;bottom:50px;transform:rotate(26deg)}.leaf.three{left:27px;bottom:59px;transform:rotate(-72deg)}
 .book{position:absolute;width:72px;height:12px;right:calc(50% - 112px);bottom:90px;border-radius:4px;background:#d7e5d1;transform:rotate(-8deg)}
-.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;color:var(--muted);font-size:13px}
 .section{padding:100px 0}
 .section h2{font-size:clamp(43px,5.7vw,72px);margin-bottom:22px}
 .section-intro,.day-intro>p{font-size:15px;line-height:1.8;color:var(--muted);max-width:465px;margin:0}
@@ -78,15 +75,14 @@ button{font:inherit;color:inherit}
 }
 @media(max-width:560px){
   .wrap{width:calc(100% - 28px)}.header{height:70px}.header-link{font-size:11px}.hero{padding-top:55px}.hero h1{font-size:clamp(51px,16vw,78px)}.lede{font-size:15px}.hero-scene{height:335px;padding:12px;border-radius:25px}
-  .window{width:155px;height:170px;top:31px}.sun{width:50px;height:50px;top:27px}.curtain{height:180px;width:30px}.table{width:205px;bottom:62px}.table:after{height:62px}.plant{transform:scale(.84);transform-origin:bottom left;left:calc(50% - 100px);bottom:73px}.book{right:calc(50% - 96px);bottom:74px}
-  .band{font-size:12px}.section{padding:78px 0}.section h2,.day-intro h2{font-size:47px}.day-panel{padding:15px;border-radius:25px}.day-card{grid-template-columns:1fr;gap:5px;min-height:325px;padding:18px}.day-time{font-size:26px}.day-copy h3{font-size:25px}.day-bottom{margin-top:18px}.footer{flex-direction:column;gap:7px;line-height:1.6}
+  .window{width:155px;height:170px;top:31px}.sun{width:50px;height:50px;top:27px}.curtain{height:180px;width:30px}.table{width:205px;bottom:62px}.table:after{height:62px}.plant{transform:scale(.84);transform-origin:bottom left;left:calc(50% - 100px);bottom:73px}.book{right:calc(50% - 96px);bottom:74px}.section{padding:78px 0}.section h2,.day-intro h2{font-size:47px}.day-panel{padding:15px;border-radius:25px}.day-card{grid-template-columns:1fr;gap:5px;min-height:325px;padding:18px}.day-time{font-size:26px}.day-copy h3{font-size:25px}.day-bottom{margin-top:18px}.footer{flex-direction:column;gap:7px;line-height:1.6}
 }
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header class="header"><a class="brand" href="#top">向前看</a><a class="header-link" href="#day">未来的一天 ↓</a></header>
+<header class="header"><a class="brand" href="#top">向前看</a></header>
 <main id="top">
 <section class="hero">
   <div class="reveal">
@@ -100,7 +96,6 @@ button{font:inherit;color:inherit}
   </div>
 </section>
 
-<div class="band">技术越自然，人的存在感越清晰。</div>
 
 <section class="section" id="values">
   <div class="reveal"><p class="kicker">三个判断</p><h2>未来不是炫技，<br>是三种<em>取舍。</em></h2><p class="section-intro">真正重要的，不是 AI 能做到什么，而是它愿意为人的生活留下什么。</p></div>
@@ -119,7 +114,7 @@ button{font:inherit;color:inherit}
   </div>
 </section>
 </main>
-<footer class="footer"><span>向前看</span><span>让生活回到中心</span></footer>
+<footer class="footer"><span>向前看</span></footer>
 </div>
 <script>
 const observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target)}})},{threshold:.12});
