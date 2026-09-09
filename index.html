@@ -36,9 +36,22 @@ button{font:inherit;color:inherit}
   height:76px;
   display:flex;
   align-items:center;
+  justify-content:space-between;
   border-bottom:1px solid var(--line);
 }
 .brand{font-size:15px;font-weight:850;letter-spacing:.04em}
+.lang-toggle{
+  padding:10px 13px;
+  border:1px solid #000;
+  border-radius:999px;
+  background:#fff;
+  color:#000;
+  font-size:12px;
+  font-weight:850;
+  cursor:pointer;
+  transition:background .25s ease,color .25s ease,transform .25s ease;
+}
+.lang-toggle:hover{background:#000;color:#fff;transform:translateY(-2px)}
 .hero{
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(390px,500px);
@@ -261,7 +274,7 @@ button{font:inherit;color:inherit}
 </head>
 <body>
 <div class="wrap">
-  <header class="header"><a class="brand" href="#top">向前看</a></header>
+  <header class="header"><a class="brand" href="#top">向前看</a><button class="lang-toggle" type="button" aria-label="切换到英文">EN</button></header>
   <main id="top">
     <section class="hero">
       <div class="reveal">
@@ -324,27 +337,120 @@ if("IntersectionObserver" in window){
 }else{
   revealItems.forEach((item)=>item.classList.add("show"));
 }
-const moments=[
-  {time:"07:40",title:"一天从容地开始",body:"杂乱的提醒先被整理好，真正重要的事留下来。你不必一醒来，就被信息追着跑。"},
-  {time:"13:20",title:"想法可以一起长大",body:"复杂的任务被拆成轻松的几步，人负责方向与判断，工具负责把想法稳稳带到现实。"},
-  {time:"22:15",title:"把注意力还给生活",body:"重要的事情被照料好，剩下的时间不再被追问。你可以关掉它，去散步、聊天，或者什么也不做。"}
-];
+
+const copy={
+  zh:{
+    brand:"向前看",
+    title:"未来，<br>更像<em>生活。</em>",
+    lede:"展望 AI 的未来，不是把世界变得更复杂，而是让复杂的部分安静退场，把时间、选择和决定权还给人。",
+    heroButton:'看未来的一天 <span aria-hidden="true">↓</span>',
+    imageAlt:"阳光照进窗边的书桌、植物与打开的书",
+    valuesTitle:"未来不是炫技，<br>是三种<em>取舍。</em>",
+    valuesIntro:"真正重要的，不是 AI 能做到什么，而是它愿意为人的生活留下什么。",
+    values:[
+      {title:"把时间还给人",body:"重复的部分被接住，精力回到判断、陪伴和真正想做的事。"},
+      {title:"让选择更有余地",body:"工具提供更多可能，但不替人决定什么才是正确答案。"},
+      {title:"把边界留在手里",body:"越强大的能力，越应该允许暂停、退出和重新选择。"}
+    ],
+    dayTitle:"帮助不必<em>抢镜。</em>",
+    dayIntro:"点一下时间，看看同一种能力如何变成更自然的生活方式。",
+    tabsLabel:"未来的一天",
+    toggle:"EN",
+    toggleLabel:"切换到英文",
+    lang:"zh-CN",
+    pageTitle:"向前看｜未来更像生活",
+    pageDescription:"展望 AI 的未来：让技术退到恰好的位置，让生活回到中心。",
+    moments:[
+      {time:"07:40",title:"一天从容地开始",body:"杂乱的提醒先被整理好，真正重要的事留下来。你不必一醒来，就被信息追着跑。"},
+      {time:"13:20",title:"想法可以一起长大",body:"复杂的任务被拆成轻松的几步，人负责方向与判断，工具负责把想法稳稳带到现实。"},
+      {time:"22:15",title:"把注意力还给生活",body:"重要的事情被照料好，剩下的时间不再被追问。你可以关掉它，去散步、聊天，或者什么也不做。"}
+    ],
+    footer:"向前看"
+  },
+  en:{
+    brand:"LOOK AHEAD",
+    title:"The future,<br>more like <em>life.</em>",
+    lede:"Looking ahead to AI does not mean making the world more complicated. It means letting complexity step back, and giving time, choice, and agency back to people.",
+    heroButton:'See a future day <span aria-hidden="true">↓</span>',
+    imageAlt:"Sunlight on a desk by the window, with a plant and an open book",
+    valuesTitle:"The future is not a showcase,<br>but three <em>choices.</em>",
+    valuesIntro:"What matters is not only what AI can do, but what it chooses to leave room for in human life.",
+    values:[
+      {title:"Give time back",body:"Let repetition be handled, so attention returns to judgment, presence, and the things worth doing."},
+      {title:"Leave room to choose",body:"Tools can open more possibilities without deciding what the right answer must be."},
+      {title:"Keep the boundary",body:"The more powerful the capability, the more it should allow pause, exit, and another choice."}
+    ],
+    dayTitle:"Help does not need to <em>steal the scene.</em>",
+    dayIntro:"Tap a time to see how the same capability can become a more natural part of life.",
+    tabsLabel:"A day in the future",
+    toggle:"中",
+    toggleLabel:"Switch to Chinese",
+    lang:"en",
+    pageTitle:"Look Ahead | The Future Feels Like Life",
+    pageDescription:"Looking ahead to AI: let technology take its proper place, and put life back at the center.",
+    moments:[
+      {time:"07:40",title:"A calm start to the day",body:"Noisy reminders are sorted first, leaving only what matters. You do not have to wake up running after information."},
+      {time:"13:20",title:"Let ideas grow together",body:"Complex work becomes a few lighter steps. People set the direction and make the calls; tools carry ideas into reality."},
+      {time:"22:15",title:"Give attention back to life",body:"What matters is cared for, and the rest stops asking for you. Turn it off, take a walk, talk, or do nothing at all."}
+    ],
+    footer:"LOOK AHEAD"
+  }
+};
+
+let language=new URLSearchParams(location.search).get("lang")==="en"?"en":"zh";
+let currentMoment=0;
 const tabs=[...document.querySelectorAll(".time-tab")];
 const dayCard=document.querySelector("#dayCard");
+const langToggle=document.querySelector(".lang-toggle");
+
 function setMoment(index){
-  const item=moments[index];
+  const item=copy[language].moments[index];
+  currentMoment=index;
+  document.querySelector("#dayTime").textContent=item.time;
+  document.querySelector("#dayTitle").textContent=item.title;
+  document.querySelector("#dayBody").textContent=item.body;
   tabs.forEach((tab,i)=>{
     tab.classList.toggle("active",i===index);
     tab.setAttribute("aria-selected",String(i===index));
   });
-  document.querySelector("#dayTime").textContent=item.time;
-  document.querySelector("#dayTitle").textContent=item.title;
-  document.querySelector("#dayBody").textContent=item.body;
   dayCard.classList.remove("swap");
   void dayCard.offsetWidth;
   dayCard.classList.add("swap");
 }
+
+function applyLanguage(next){
+  language=next;
+  const item=copy[language];
+  document.documentElement.lang=item.lang;
+  document.title=item.pageTitle;
+  document.querySelector('meta[name="description"]').setAttribute("content",item.pageDescription);
+  document.querySelector(".brand").textContent=item.brand;
+  document.querySelector(".hero h1").innerHTML=item.title;
+  document.querySelector(".hero .lede").textContent=item.lede;
+  document.querySelector(".hero-button").innerHTML=item.heroButton;
+  document.querySelector(".hero-art img").setAttribute("alt",item.imageAlt);
+  document.querySelector("#values h2").innerHTML=item.valuesTitle;
+  document.querySelector("#values .section-lede").textContent=item.valuesIntro;
+  document.querySelectorAll(".value-card").forEach((card,index)=>{
+    card.querySelector("h3").textContent=item.values[index].title;
+    card.querySelector("p").textContent=item.values[index].body;
+  });
+  document.querySelector(".day-intro h2").innerHTML=item.dayTitle;
+  document.querySelector(".day-intro > p").textContent=item.dayIntro;
+  document.querySelector(".time-tabs").setAttribute("aria-label",item.tabsLabel);
+  document.querySelector(".lang-toggle").textContent=item.toggle;
+  document.querySelector(".lang-toggle").setAttribute("aria-label",item.toggleLabel);
+  document.querySelector(".footer span").textContent=item.footer;
+  setMoment(currentMoment);
+}
+
 tabs.forEach((tab)=>tab.addEventListener("click",()=>setMoment(Number(tab.dataset.index))));
+langToggle.addEventListener("click",()=>{
+  const next=language==="zh"?"en":"zh";
+  applyLanguage(next);
+  history.replaceState(null,"",next==="en"?"?lang=en":location.pathname+location.hash);
+});
+applyLanguage(language);
 </script>
 </body>
 </html>
